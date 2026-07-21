@@ -1,0 +1,42 @@
+geoid	12-digit Census block group GEOID (state+county+tract+block group). Read as text; join key to Census/ACS block group geometry.
+tract_name	Census block group name (block group; tract; county; state).
+metro	Metro area (Census CBSA) the block group belongs to.
+state	2-letter US state abbreviation.
+walkability_index	EPA National Walkability Index, 1 to 20. Higher = more walkable street network and destination access.
+walkability_pctile	National percentile (0-100) of walkability_index across all US block groups.
+county_ped_death_rate_per_100k	Annual pedestrian deaths per 100,000 residents in the parent county (FARS 2022-2024 / 3 / county population x 100,000). Blank where FARS has no county record.
+ped_safety_pctile	National percentile of pedestrian safety. 100 = safest (lowest death rate). Inverted so higher is always better, like every other percentile here.
+safe_walk_score	The SafeStreets Walk Safety Score, 0-100. 0.7 x walkability_pctile + 0.3 x ped_safety_pctile. Answers what the EPA index cannot: is this place laid out for walking AND will walking there get you killed.
+safe_walk_tier	Label for safe_walk_score: Walkable and safe (>=80), Above average (>=60), Average (>=40), Below average (>=20), Car-dependent or dangerous (<20).
+walk_safety_gap	walkability_pctile minus ped_safety_pctile. How much a place flatters itself. Positive = built like you could walk, dangerous if you try (Las Vegas +48.6, Miami +52.9). Negative = safer than its layout suggests (Boston -15.9).
+pop_density_per_sqmi	Population density, persons per square mile.
+density_pctile	National percentile of population density.
+median_household_income	Median household income, USD (ACS 2020-2024, as reported). Blank where ACS suppressed it.
+income_pctile	National percentile of median household income.
+median_home_value	Median home value, USD (ACS owner-reported, block group-level). Runs ~15-20% below market.
+value_to_income_ratio	median_home_value / median_household_income. <=3 affordable, >=5 severely unaffordable.
+affordability_pctile	National percentile, inverted: higher = more affordable (lower value-to-income).
+commercial_activity_index	Relative density of commercial/business activity, 0 to 1. Higher = more active commercial fabric.
+commercial_pctile	National percentile of commercial activity.
+commercial_gap_pctile	Gap between walkability/density and commercial activity. Higher = walkable and dense but commercially empty.
+transit_service_frequency	EPA aggregate transit service frequency per square mile. Blank = no EPA record (not zero).
+transit_access_pctile	National percentile of transit access.
+retail_emp_density	Retail employment density (EPA SLD).
+service_emp_density	Service employment density (EPA SLD).
+entertainment_emp_density	Entertainment employment density (EPA SLD).
+retail_jobs	Retail-sector jobs in the block group.
+service_jobs	Service-sector jobs in the block group.
+entertainment_jobs	Entertainment-sector jobs in the block group.
+population	Total population (EPA SLD, ACS-derived).
+households	Total households (EPA SLD, ACS-derived).
+demand_income_pctile	Spending-power component of latent retail demand (= income_pctile).
+demand_afford_pctile	Affordability component of latent retail demand (= affordability_pctile).
+underserved_demand_score	0-100: unmet demand for daily-needs retail in a dense/walkable/affordable but commercially empty block group. Site-selection signal.
+walkability_tier	Most walkable (>=15.26), Above average, Below average, or Least walkable (EPA cutoffs).
+is_most_walkable	True if walkability_index >= 15.26 (EPA 'most walkable' tier).
+is_affordable	True if 0 < value_to_income_ratio <= 3.0.
+is_walkable_affordable	True if both walkable and affordable. Only ~1% of US households live in these.
+is_commercial_desert	True if a curated Commercial Desert: walkable, dense, affordable, yet almost no businesses.
+county_ped_deaths_3yr	Pedestrian fatalities in this block group's county, 2022-2024 (NHTSA FARS, county-level).
+county_pct_deaths_on_arterials	Share of those county pedestrian deaths on surface arterials, %.
+county_pct_deaths_after_dark	Share of those county pedestrian deaths between 6pm and 6am, %.
