@@ -40,3 +40,9 @@ is_commercial_desert	True if a curated Commercial Desert: walkable, dense, affor
 county_ped_deaths_3yr	Pedestrian fatalities in this block group's county, 2022-2024 (NHTSA FARS, county-level).
 county_pct_deaths_on_arterials	Share of those county pedestrian deaths on surface arterials, %.
 county_pct_deaths_after_dark	Share of those county pedestrian deaths between 6pm and 6am, %.
+zillow_zcta	ZIP (ZCTA) this neighborhood maps to. Join to Zillow public research data (ZHVI/ZORI) to attach live market values.
+income_source	How income was matched to this block group: exact (boundary unchanged) or nearest (transferred from the nearest current block group).
+price_to_rent_ratio	Home value divided by annual rent. Low = buying is cheap relative to renting.
+rent_affordability_pctile	National percentile of rent affordability. Higher = more affordable to rent.
+is_rent_burdened	True where rent exceeds 30% of median household income (HUD threshold).
+market_affordability_pctile	National percentile of affordability against current market prices (Zillow-derived), not ACS self-reported value.
